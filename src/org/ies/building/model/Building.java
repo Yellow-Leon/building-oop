@@ -14,7 +14,76 @@ public class Building {
         this.apartments = apartments;
     }
 
+    public void showInfo() {
+        System.out.println("Address: " + address + " Municipality: " + municipality);
+        System.out.println("Apartments : ");
+        showAll();
+    }
 
+    public void showAll() {
+        for (Apartment apartment : apartments) {
+            System.out.println(apartment);
+        }
+    }
+
+    public Apartment hasApartment(String plant, String door) {
+        for (Apartment apartment : apartments) {
+            if (apartment.getDoor().equals(door) && apartment.getPlant().equals(plant)) {
+                return apartment;
+            }
+        }
+        return null;
+    }
+
+    public void showApartments(String plant) {
+        for (Apartment apartment : apartments) {
+            if (apartment.getPlant().equals(plant)) {
+                System.out.println(apartment);
+            }
+        }
+    }
+
+    public Owner hasOwner(String door, String plant) {
+        for (Apartment apartment : apartments) {
+            if (apartment.getDoor().equals(door) && apartment.getPlant().equals(plant)) {
+                return returnOwners();
+            }
+        }
+        return null;
+    }
+
+    public Owner returnOwners() {
+        for (Apartment apartment : apartments) {
+            for (Owner owner : apartment.getOwners()) {
+                return owner;
+            }
+        }
+        return null;
+    }
+
+    public void thisApartment(String door, String plant) {
+        for (Apartment apartment : apartments) {
+            if (apartment.getDoor().equals(door) && apartment.getPlant().equals(plant)) {
+                System.out.println(apartment);
+            }
+            else {
+                System.out.println("No existe ese apartamento");
+            }
+        }
+    }
+
+    public void thisOwner(String door, String plant) {
+        for (Apartment apartment : apartments) {
+            if (apartment.getDoor().equals(door) && apartment.getPlant().equals(plant)) {
+                for (Owner owner: apartment.getOwners()){
+                    System.out.println(owner);
+                }
+            }
+            else {
+                System.out.println("No existe ese apartamento");
+            }
+        }
+    }
 
     public String getAddress() {
         return address;

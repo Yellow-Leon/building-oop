@@ -14,6 +14,18 @@ public class Apartment {
         this.owners = owners;
     }
 
+    public void showInfo (){
+        System.out.println("Plant : " + plant + " Door : " + door);
+        System.out.print("Owners : ");
+        showOwners(owners);
+    }
+
+    public void showOwners (Owner[] owners){
+        for (Owner owner : owners){
+            System.out.println("NIF : " + owner.getNif() + " Name : " + owner.getName() + " Lastname : " + owner.getLastname());
+        }
+    }
+
     public String getPlant() {
         return plant;
     }
