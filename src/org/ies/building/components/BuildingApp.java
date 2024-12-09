@@ -20,21 +20,11 @@ public class BuildingApp {
             if (select == 1){
                 building.showInfo();
             } else if (select == 2){
-                System.out.println("Introduce el numero de planta");
-                String plant = scanner.nextLine();
-                building.showApartments(plant);
+                building.showApartments(building.askPlant());
             } else if (select == 3){
-                System.out.println("Introduce la puerta");
-                String door = scanner.nextLine();
-                System.out.println("Introduce la planta");
-                String plant = scanner.nextLine();
-                building.thisApartment(door,plant);
+                building.thisApartment(building.askDoor(), building.askPlant());
             } else if (select == 4){
-                System.out.println("Introduce la puerta");
-                String door = scanner.nextLine();
-                System.out.println("Introduce la planta");
-                String plant = scanner.nextLine();
-                building.thisOwner(door,plant);
+                building.thisOwner(building.askDoor(), building.askPlant());
             } else if (select == 5){
                 System.out.println("Saliendo...");
             }

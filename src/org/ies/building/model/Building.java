@@ -2,6 +2,7 @@ package org.ies.building.model;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Building {
     private String address;
@@ -12,6 +13,20 @@ public class Building {
         this.address = address;
         this.municipality = municipality;
         this.apartments = apartments;
+    }
+
+    public String askPlant (){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Numero del piso");
+        String plant = scanner.nextLine();
+        return plant;
+    }
+
+    public String askDoor (){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Numero de puertas");
+        String door = scanner.nextLine();
+        return door;
     }
 
     public void showInfo() {
@@ -65,6 +80,7 @@ public class Building {
         for (Apartment apartment : apartments) {
             if (apartment.getDoor().equals(door) && apartment.getPlant().equals(plant)) {
                 System.out.println(apartment);
+                break;
             }
             else {
                 System.out.println("No existe ese apartamento");
@@ -78,6 +94,7 @@ public class Building {
                 for (Owner owner: apartment.getOwners()){
                     System.out.println(owner);
                 }
+                break;
             }
             else {
                 System.out.println("No existe ese apartamento");
